@@ -1,13 +1,18 @@
 /**
  * Array based storage for Resumes
  */
-public class ArrayStorage {
+public class  ArrayStorage {
     Resume[] storage = new Resume[10000];
-
+    int arraySize = 0;
     void clear() {
+        for (Resume r : storage) {
+            r = null;
+        }
     }
 
     void save(Resume r) {
+        arraySize = arraySize + 1;
+        storage[arraySize] = r;
     }
 
     Resume get(String uuid) {
@@ -25,6 +30,6 @@ public class ArrayStorage {
     }
 
     int size() {
-        return 0;
+        return arraySize;
     }
 }
