@@ -53,4 +53,8 @@ public class ArrayStorage {
     public int size() {
         return arraySize;
     }
+
+    private int getIndex(){
+
+    }
 }
