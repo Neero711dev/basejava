@@ -54,7 +54,12 @@ public class ArrayStorage {
         return arraySize;
     }
 
-    private int getIndex(){
-
+    private int getIndex(String uuid) {
+        for (int i = 0; i < arraySize; i++) {
+            if (Objects.equals(uuid, storage[i].getUuid())) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
