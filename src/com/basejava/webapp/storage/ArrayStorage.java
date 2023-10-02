@@ -16,7 +16,7 @@ public class ArrayStorage {
         for (Resume r : storage) {
             r = null;
         }
-        arraySi ze = 0;
+        arraySize = 0;
     }
 
     public void save(Resume r) {
@@ -34,12 +34,14 @@ public class ArrayStorage {
     }
 
     public void delete(String uuid) {
-        for (int i = 0; i < arraySize; i++) {
-            if (Objects.equals(uuid, storage[i].getUuid())) {
-                storage[i] = storage[arraySize - 1];
-                storage[arraySize - 1] = null;
-                arraySize--;
-            }
+        int index = getIndex(uuid);
+        if (index == -1) {
+            System.out.println("Error");
+
+        } else {
+            storage[index] = storage[arraySize - 1];
+            storage[arraySize - 1] = null;
+            arraySize--;
         }
     }
 
