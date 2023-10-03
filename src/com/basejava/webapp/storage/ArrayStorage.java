@@ -20,8 +20,17 @@ public class ArrayStorage {
     }
 
     public void save(Resume r) {
-        storage[arraySize] = r;
-        arraySize++;
+        int index = getIndex(r.getUuid());
+        if (index != -1) {
+            System.out.println("Error");
+
+        } else if (arraySize == storage.length) {
+            System.out.println("Storage full");
+        } else {
+            storage[index] = storage[arraySize - 1];
+            storage[arraySize - 1] = null;
+            arraySize--;
+        }
     }
 
     public Resume get(String uuid) {
