@@ -18,18 +18,26 @@ public class ArrayStorage {
         }
         arraySize = 0;
     }
+    public void update(Resume r) {
+        int index = getIndex(r.getUuid());
+        if (index == -1) {
+            System.out.println("Error");
+
+        }  else {
+            storage[arraySize] = r;
+            arraySize++;
+        }
+    }
 
     public void save(Resume r) {
         int index = getIndex(r.getUuid());
         if (index != -1) {
             System.out.println("Error");
-
         } else if (arraySize == storage.length) {
             System.out.println("Storage full");
         } else {
-            storage[index] = storage[arraySize - 1];
-            storage[arraySize - 1] = null;
-            arraySize--;
+            storage[arraySize] = r;
+            arraySize++;
         }
     }
 
