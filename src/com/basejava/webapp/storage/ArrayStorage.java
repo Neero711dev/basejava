@@ -13,9 +13,7 @@ public class ArrayStorage {
     private int arraySize = 0;
 
     public void clear() {
-        for (Resume r : storage) {
-            r = null;
-        }
+        Arrays.fill(storage, 0,arraySize, null);
         arraySize = 0;
     }
     public void update(Resume r) {
