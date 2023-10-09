@@ -31,7 +31,6 @@ public abstract class AbstractArrayStorage implements Storage {
         }
     }
 
-    protected abstract void insertElement(Resume r, int index);
 
     public void update(Resume r) {
         int index = getIndex(r.getUuid());
@@ -56,11 +55,6 @@ public abstract class AbstractArrayStorage implements Storage {
         }
     }
 
-    protected abstract void fillDeletedElement(int index);
-
-    public Resume[] getAll() {
-        return Arrays.copyOfRange(storage, 0, arraySize);
-    }
 
     public Resume get(String uuid) {
         int index = getIndex(uuid);
@@ -70,6 +64,14 @@ public abstract class AbstractArrayStorage implements Storage {
         }
         return storage[index];
     }
+
+    public Resume[] getAll() {
+        return Arrays.copyOfRange(storage, 0, arraySize);
+    }
+
+    protected abstract void insertElement(Resume r, int index);
+
+    protected abstract void fillDeletedElement(int index);
 
     protected abstract int getIndex(String uuid);
 }
